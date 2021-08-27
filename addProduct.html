@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+</head>
+
+<body>
+    
+    <section id="productHeader">
+        <div class=" my-Container m-auto">
+            <nav class="navbar navbar-expand-lg text-dark navbar-light bg-light my-0 p-3">
+                <div class="container">
+                    <a class="navbar-brand myTextColor myText" href="index.html">Petroman</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link activeLink" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Petro-Produts
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="addProduct.html">Add New Product</a>
+                                    <a class="dropdown-item" href="#searchItem">View/Manage Product</a>
+
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacts.html">Contact-Us</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!--add product section-->
+            <div class="col-md-8">
+                <!--alert to tell products added-->
+                <div id="successProductAlert" class="alert alert-warning" role="alert">
+                    Product added successfuly!
+                </div>
+                <form class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input  placeholder="Product Name" id='productName' type="text" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productText">Product Description</label>
+                        <textarea  id='productDesc' class="form-control" rows="3" required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productBrand">Product Brand</label>
+                        <input  id='productBrand' type="text" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productQuantity">Product Quantity</label>
+                        <input  id='productQuantity' type="number" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productSelect">Product Status</label>
+                        <select id="productSelect">
+                            <option value="In stock">In stock</option>
+                            <option value="Out of stock">Out of stock</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Product Price</label>
+                        <input  id='productPrice' type="number" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                    <button id='productBtn' type="submit" class="btn btn-primary">Add New product</button>
+                </form>
+                <script>
+                    (function() {
+                    'use strict';
+                    window.addEventListener('load', function() {
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.getElementsByClassName('needs-validation');
+                        // Loop over them and prevent submission
+                        var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                        });
+                    }, false);
+                    })();
+                </script>
+                
+            </div>
+            <!--end product section-->
+        </div>
+    </section>
+    
+
+    <!-- view product section-->
+    <section class="my-5">
+        <div class="container">
+            <h2 id="productHeadline">Our Products</h2>
+            <div id="searchItem" class="w-50 my-4">
+                <input type="text" placeholder="Search" class="form-control" id="mySearchInp">
+                <i class="fas fa-lg fa-search mySearch"></i>
+            </div>
+            <div class="row" id="dataRow">
+            </div>
+        </div>
+    </section>
+    <div id="modalDiv"></div>
+
+    <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2021 Copyright:
+          <a class="text-dark" >PETROMAN- A Venture of Shivam petrolium Products</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    <!--end of view product-->
+
+    <!--scripts-->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/myJs.js"></script>
+</body>
+
+</html>
